@@ -29,9 +29,12 @@ export const cardStyles = css`
 .in-row1 { font-size: 1em; height: 1em; margin: 6px 0 2px; }
 .in-row2 { ; font-size: 1em; height: 1em; margin: 6px 0 2px; }
 .in-row1, .in-row2 { display: flex; justify-content: space-between; align-items: center; margin: 2px 0; }
-.last-play { font-size: 1.2em; width: 100%; white-space: nowrap; overflow: hidden; box-sizing: border-box; }
-.last-play p { animation : slide var(--last-play-speed, 18s) linear infinite; display: inline-block; padding-left: 100%; margin: 2px 0 12px; }
-@keyframes slide { 0%   { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
+.last-play { --gap: 4em; font-size: 1.2em; width: 100%; white-space: nowrap; position: relative; display: flex; overflow: hidden; user-select: none; gap: var(--gap); }
+.last-play .play, .last-play .space { min-width: 100%; margin: 2px 0 12px; }
+.last-play .play { position: absolute; flex-shrink: 0; display: flex; justify-content: space-around; gap: var(--gap); animation: slide var(--last-play-speed, 18s) linear infinite; }
+.last-play .play:last-child { animation-name: slide2; }
+@keyframes slide { 0%   { transform: translateX(0); } 100% { transform: translateX(calc(-100% - var(--gap))); } }
+@keyframes slide2 { 0%   { transform: translateX(calc(100% + var(--gap))); } 100% { transform: translateX(0); } }
 .down-distance { text-align: right; }
 .play-clock { font-size: 1.4em; height: 1.4em; text-align: center; }
 .outs { display: var(--outs-display, inherit); text-align: center; }

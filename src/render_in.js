@@ -69,7 +69,13 @@ export function renderIn(c) {
                 </div>
                 <div class="line"></div>
                 <div class="last-play" style=${styleMap({"--last-play-speed": `${c.lastPlaySpeed}s`})}>
-                    <p>${c.lastPlay}</p>
+                    <span class="space"><p>&nbsp;</p></span>
+                    <span class="play">
+                        <p>${c.lastPlay}</p>
+                    </span>
+                    <span aria-hidden="true" class="play">
+                        <p>${c.lastPlay}</p>
+                    </span>
                 </div>
                 <div class="bar-wrapper" style=${styleMap({"--bar-display": `${c.barDisplay}`})}>
                     <div class="bar-text">${c.gameBar}</div>
