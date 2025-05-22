@@ -29,9 +29,9 @@ export const cardStyles = css`
 .in-row1 { font-size: 1em; height: 1em; margin: 6px 0 2px; }
 .in-row2 { ; font-size: 1em; height: 1em; margin: 6px 0 2px; }
 .in-row1, .in-row2 { display: flex; justify-content: space-between; align-items: center; margin: 2px 0; }
-.last-play { --gap: 4em; font-size: 1.2em; width: 100%; white-space: nowrap; position: relative; display: flex; overflow: hidden; user-select: none; gap: var(--gap); }
+.last-play { --gap: 4em; font-size: 1.2em; width: 100%; white-space: nowrap; position: relative; display: flex; justify-content: space-around; gap: var(--gap); overflow: hidden; user-select: none; gap: var(--gap); }
 .last-play .play, .last-play .space { min-width: 100%; margin: 2px 0 12px; }
-.last-play .play { position: absolute; flex-shrink: 0; display: flex; justify-content: space-around; gap: var(--gap); animation: slide var(--last-play-speed, 18s) linear infinite; }
+.last-play .play { position: absolute; flex-shrink: 0; animation: slide var(--last-play-speed, 18s) linear infinite; }
 .last-play .play:last-child { animation-name: slide2; }
 @keyframes slide { 0%   { transform: translateX(0); } 100% { transform: translateX(calc(-100% - var(--gap))); } }
 @keyframes slide2 { 0%   { transform: translateX(calc(100% + var(--gap))); } 100% { transform: translateX(0); } }
